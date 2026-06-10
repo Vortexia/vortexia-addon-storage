@@ -1,0 +1,13 @@
+name: Vortexia-Addon-Storage
+version: ${version}
+main: me.alikuxac.vortexia.addon.storage.StorageAddon
+api-version: '1.21'
+author: alikuxac
+description: A digital storage addon for Vortexia ecosystem.
+
+dependencies:
+  server:
+    VortexiaCore:
+      load: BEFORE
+      required: true
+      join-classpath: true

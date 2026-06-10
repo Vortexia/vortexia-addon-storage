@@ -1,0 +1,133 @@
+# Vortexia Storage Addon - Language Configuration
+# You can use & for color codes.
+
+prefix: "&d&lVortexia Storage &7» "
+no_permission: "&cYou do not have permission to use this command!"
+
+# Item Names & Lore
+items:
+  nodes:
+    controller: "Storage Controller"
+    terminal: "Storage Terminal"
+    drive: "Storage Drive"
+    cloud_drive: "Cloud Drive"
+    import_node: "Import Node"
+    export_node: "Export Node"
+  cells:
+    copper: "1k Storage Cell (Copper)"
+    iron: "4k Storage Cell (Iron)"
+    gold: "16k Storage Cell (Gold)"
+    diamond: "64k Storage Cell (Diamond)"
+    netherite: "256k Storage Cell (Netherite)"
+  upgrades:
+    crafting: "Crafting Upgrade"
+  wireless_remote:
+    name: "&dWireless Remote"
+    lore_desc: "&7Allows remote access to the storage network."
+    lore_usage_header: "&e&l[USAGE]"
+    lore_usage_bind: "&f- Right-click a Terminal to link."
+    lore_usage_open: "&f- Right-click in air to open storage."
+    status_prefix: "&7Status: "
+    status_linked: "&aLinked"
+    status_unlinked: "&cUnlinked"
+    lore_world: "&8- World: "
+    lore_pos: "&8- Pos: "
+
+# GUI Titles & Buttons
+gui:
+  drive_title: "Storage Drive Cells"
+  cloud_config_title: "Cloud Drive Configuration"
+  cloud_member_title: "Manage Channel: %name%"
+  creative_title: "&d&lCreative Menu"
+  terminal_title: "&d&lVortexia Terminal"
+  terminal:
+    upgrade_slot: "&7[Upgrade Slot %index%]"
+    output: "&fOutput"
+    craft_button: "&e&lCraft"
+    search_button: "&6&lSearch Items"
+    sort_button: "&a&lSort Mode"
+    status_title: "&b&lNetwork Status"
+    status_items: "&7Items: &f%current% / %max%"
+    status_nodes: "&7Nodes: &f%count%"
+    status_search: "&7Search: &b%query%"
+    status_sort: "&7Sort: &a%mode%"
+    item_count: "&7Quantity: &f%count%"
+    item_withdraw_hint: "&8&o(Click to withdraw 1 stack)"
+    sort_current: "&7Current: &a%mode%"
+  back_button: "&7Back"
+  back_button_lore: "&8Return to configuration menu"
+  
+  cloud:
+    personal_title: "&b&lPersonal Storage"
+    personal_lore:
+      - "&7Private storage tied to your account."
+      - "&eStatus: %status%"
+    shared_title: "&d&lShared Channel"
+    shared_lore:
+      - "&7Shared storage tied to a Channel ID."
+      - "&eStatus: %status%"
+      - ""
+      - "&fCurrent ID: &b%id%"
+    manage_title: "&a&lManage Channels"
+    manage_lore:
+      - "&7Click to Create, Join, or"
+      - "&7manage channel members."
+    status_active: "&aACTIVE"
+    status_off: "&cOFF"
+    
+  members:
+    click_kick: "&7- &eLeft-click: &cKICK"
+    click_ban: "&7- &eRight-click: &4BAN/BLOCK"
+
+# Messages
+messages:
+  player_only: "&cThis command can only be run by a player!"
+  terminal_not_connected: "&cThis Terminal is not connected to any network!"
+  remote_receive_success: "&fReceived Vortexia Wireless Remote!"
+  remote_invalid_loc: "&c[Vortexia] &fInvalid binding coordinates!"
+  remote_no_network: "&c[Vortexia] &fNo network found at linked coordinates!"
+  remote_not_bound: "&e[Vortexia] &fThis Remote is not bound to any Terminal!"
+  remote_bound_success: "&a[Vortexia] &fLinked Remote to Terminal at &b%x%, %y%, %z%"
+  remote_status_linked: "&7Status: &aLinked"
+  cloud_not_connected: "&c[Vortexia] &fThis device is not connected to any channel!"
+  cloud_owner_only: "&c[Vortexia] &fOnly the channel owner can manage members!"
+  cloud_channel_created: "&a[Vortexia] &fCreated channel &b%name% &fwith ID: &e%id%"
+  cloud_channel_connected: "&a[Vortexia] &fConnected Cloud Drive to channel &e%id%"
+  cloud_gui_required: "&c[Vortexia] &fYou must have the Cloud Drive GUI open to run this command!"
+  cloud_auth_failed: "&c[Vortexia] &fInvalid ID or Password!"
+  cloud_switched_personal: "&a[Vortexia] &fSwitched Cloud Drive to &bPersonal &fmode."
+  cloud_use_manage: "&e[Vortexia] &fUse 'Manage Channels' button to change."
+  player_kicked: "&a[Vortexia] &fKicked &b%player% &ffrom channel."
+  player_blocked: "&c[Vortexia] &4BLOCKED &b%player% &fpermanently."
+  drive_invalid_item: "&c[Vortexia] &fOnly Storage Cells can be placed here!"
+  terminal_search_prompt: "&e[Vortexia] &fEnter search query in chat (or 'cancel'):"
+  terminal_search_set: "&a[Vortexia] &fSearch filter set to: &b%query%"
+  terminal_search_cancelled: "&e[Vortexia] &fSearch cancelled."
+  search_prompt: "&6[Vortexia] &fEnter search keyword in Chat (or 'clear' to reset):"
+  autocraft_soon: "&e[Vortexia] &fAutocrafting feature coming soon!"
+  upgrade_attached: "&a[Vortexia] &fUpgrade attached!"
+  upgrade_full: "&c[Vortexia] &fUpgrade slots full!"
+  upgrade_removed: "&e[Vortexia] &fUpgrade removed."
+  inventory_full: "&c[Vortexia] &fYour inventory is full!"
+  item_stored: "&a[Vortexia] &fItem stored in network."
+  node_connected: "&a[Vortexia] &fConnected &b%type% &fto network."
+  filter_set: "&a[Vortexia] &fFilter set to: &b%item%"
+  filter_cleared: "&e[Vortexia] &fFilter cleared."
+
+# Update Checker
+update:
+  notify: "&d&lVortexia Storage &7» &fUpdate available: &ev%latest% &7(current: v%current%)"
+  download: "&7Download: &fhttps://github.com/alikuxac/Vortexia/releases/latest"
+  checking: "&7Checking for updates..."
+  up_to_date: "&d&lVortexia Storage &7» &aAddon is up to date! (v%version%)"
+  check_failed: "&d&lVortexia Storage &7» &cUpdate check timed out. Try again later."
+  disabled: "&d&lVortexia Storage &7» &cUpdate checker is disabled."
+
+# Command Help
+commands:
+  help_header: "&d&lVortexia Storage&7 v%version%"
+  creative: "&f/vstorage creative &7- Open creative menu"
+  getremote: "&f/vstorage getremote &7- Receive Wireless Remote"
+  cloud_create: "&f/vstorage cloud create <name> <pass> &7- Create new channel"
+  cloud_join: "&f/vstorage cloud join <id> <pass> &7- Join a channel"
+  update: "&f/vstorage update &7- Check for updates"
