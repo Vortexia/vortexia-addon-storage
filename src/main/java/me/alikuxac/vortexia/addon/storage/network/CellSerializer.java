@@ -14,7 +14,6 @@ public class CellSerializer {
         return config.saveToString();
     }
 
-    @SuppressWarnings("unchecked")
     public static List<ItemStack> deserialize(String data) {
         if (data == null || data.isEmpty()) {
             return new ArrayList<>();

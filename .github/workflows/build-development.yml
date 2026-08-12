@@ -3,12 +3,23 @@ name: Build Development
 on:
   push:
     branches: [ "development" ]
+    paths-ignore:
+      - '**.md'
+      - 'LICENSE'
+      - '.gitignore'
+      - '.gitattributes'
   pull_request:
     branches: [ "development" ]
+    paths-ignore:
+      - '**.md'
+      - 'LICENSE'
+      - '.gitignore'
+      - '.gitattributes'
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: "!startsWith(github.event.head_commit.message, '[Ci skip]')"
     permissions:
       contents: write
 
@@ -32,27 +43,14 @@ jobs:
     - name: Upload Build Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: vortexia-core-dev
-        path: build/libs/*.jar
+        name: vortexia-addon-storage-dev
+        path: "build/libs/*.jar"
+        retention-days: 14
 
-    - name: Update Dev-Snapshot Tag
+    - name: Get Project Version
       if: github.event_name == 'push' && github.ref == 'refs/heads/development'
+      id: get_version
       run: |
-        git tag -f Dev-Snapshot
-        git push origin Dev-Snapshot --force
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Create/Update Dev Release
-      if: github.event_name == 'push' && github.ref == 'refs/heads/development'
-      uses: ncipollo/release-action@v1
-      with:
-        artifacts: "build/libs/*.jar"
-        tag: "Dev-Snapshot"
-        name: "Development Snapshot"
-        allowUpdates: true
-        replacesArtifacts: true
-        prerelease: true
-        makeLatest: false
-        body: "Automated snapshot build from development branch. Always reflects the latest commit."
-        token: ${{ secrets.GITHUB_TOKEN }}
+        chmod +x gradlew
+        VERSION=$(./gradlew properties -q | grep "^version:" | awk '{print $2}')
+        echo "version=$VERSION" >> $GITHUB_OUTPUT

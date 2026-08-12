@@ -1,6 +1,5 @@
 package me.alikuxac.vortexia.addon.storage.network;
 
-import me.alikuxac.vortexia.addon.storage.network.StorageNode.NodeType;
 import org.bukkit.Location;
 import java.util.UUID;
 

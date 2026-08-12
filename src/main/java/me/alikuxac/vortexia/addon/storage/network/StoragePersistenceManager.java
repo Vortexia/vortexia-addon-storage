@@ -3,20 +3,19 @@ package me.alikuxac.vortexia.addon.storage.network;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
+
 import me.alikuxac.vortexia.addon.storage.StorageAddon;
 import me.alikuxac.vortexia.api.VortexiaKeys;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 
-import java.io.*;
-import java.lang.reflect.Type;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import java.util.HashMap;
+
 
 public class StoragePersistenceManager {
 
@@ -52,7 +51,7 @@ public class StoragePersistenceManager {
         public GridData(StorageGrid grid) {
             this.id = grid.getId();
             this.nodes = new ArrayList<>();
-            for (me.alikuxac.vortexia.api.grid.GridNode node : grid.getNodes()) {
+            for (GridNode node : grid.getNodes()) {
                 if (node instanceof StorageNode storageNode) {
                     nodes.add(new NodeData(storageNode));
                 }

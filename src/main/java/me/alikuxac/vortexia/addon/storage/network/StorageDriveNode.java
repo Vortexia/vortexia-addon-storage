@@ -1,6 +1,7 @@
 // Developed by alikuxac - Project Vortexia
 package me.alikuxac.vortexia.addon.storage.network;
 
+import me.alikuxac.vortexia.addon.storage.StorageAddon;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.inventory.Inventory;
@@ -10,9 +11,9 @@ import org.bukkit.persistence.PersistentDataType;
 public class StorageDriveNode extends AbstractStorageNode {
 
     private final Inventory inventory;
-    private final me.alikuxac.vortexia.addon.storage.StorageAddon addon;
+    private final StorageAddon addon;
 
-    public StorageDriveNode(me.alikuxac.vortexia.addon.storage.StorageAddon addon, Location location) {
+    public StorageDriveNode(StorageAddon addon, Location location) {
         super(location);
         this.addon = addon;
         this.inventory = Bukkit.createInventory(null, 18, addon.getLanguageManager().getMessage("gui.drive_title"));
@@ -33,7 +34,9 @@ public class StorageDriveNode extends AbstractStorageNode {
     public int getTotalCapacity() {
         int total = 0;
         for (ItemStack item : inventory.getContents()) {
-            if (item == null || item.getItemMeta() == null) continue;
+            if (item == null || item.getItemMeta() == null) {
+                continue;
+            }
             Integer capacity = item.getItemMeta().getPersistentDataContainer().get(StorageItems.CELL_CAPACITY_KEY, PersistentDataType.INTEGER);
             if (capacity != null) {
                 total += capacity;
